@@ -11,8 +11,8 @@ const bodyParser = require('body-parser');
 //bodyparser sirve para parsear objetos de las peticones
 app.use(bodyParser.urlencoded({ extended: false }))
  
-//mdlware para importar rutas usuario
-app.use( require('./routes/usuario'));
+//Configuración global de rutas
+app.use( require('./routes/index'));
 
 mongoose.connect(process.env.URLDB, 
 	{useNewUrlParser: true, useCreateIndex: true}
