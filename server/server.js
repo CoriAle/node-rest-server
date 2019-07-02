@@ -4,6 +4,8 @@ const app = express();
 // Using Node.js `require()`
 const mongoose = require('mongoose');
 
+const path = require('path')
+
 const bodyParser = require('body-parser');
  
 // parse application/x-www-form-urlencoded
@@ -13,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
  
 //Configuración global de rutas
 app.use( require('./routes/index'));
+
+//hbilitar la carpeta public
+//path para añadir la url correcta
+app.use( express.static( path.resolve(__dirname , '../public')));
+
 
 mongoose.connect(process.env.URLDB, 
 	{useNewUrlParser: true, useCreateIndex: true}
