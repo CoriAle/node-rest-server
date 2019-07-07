@@ -68,7 +68,7 @@ app.put('/upload/:tipo/:id', function(req, res){
 	//nombreHola-123.jpg
 	let nombreArchivo = `${id}-${new Date().getMilliseconds()}.${extension}`;
 
-	archivo.mv(`../uploads/${tipo}/${ nombreArchivo }`, (err)=>{
+	archivo.mv(`uploads/${tipo}/${ nombreArchivo }`, (err)=>{
 				if(err){
 					return res.status(500).json({
 						ok: false,
